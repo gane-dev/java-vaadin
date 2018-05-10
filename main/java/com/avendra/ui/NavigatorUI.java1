@@ -1,0 +1,21 @@
+package com.avendra.ui;
+
+import com.vaadin.navigator.Navigator;
+import com.vaadin.server.VaadinRequest;
+
+public class NavigatorUI {
+    Navigator navigator;
+    protected static final String MAINVIEW = "main";
+
+    @Override
+    protected void init(VaadinRequest request) {
+        getPage().setTitle("Navigation Example");
+
+        // Create a navigator to control the views
+        navigator = new Navigator(this, this);
+
+        // Create and register the views
+        navigator.addView("", new StartView());
+        navigator.addView(MAINVIEW, new MainView());
+    }
+}
